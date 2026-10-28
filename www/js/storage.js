@@ -1,0 +1,1 @@
+const Store={key:"kobosense-main-v2",load(){try{return JSON.parse(localStorage.getItem(this.key))}catch{return null}},save(){localStorage.setItem(this.key,JSON.stringify(state));if(window.KoboCloud)window.KoboCloud.saveState(state)},reset(){localStorage.removeItem(this.key);location.reload()}};

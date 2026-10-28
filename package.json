@@ -1,0 +1,26 @@
+{
+  "name": "kobosense-main-github-ready",
+  "version": "1.0.0",
+  "description": "Firebase-connected static web app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chubby1-ops/kobosense-main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Chubby1-ops/kobosense-main/issues"
+  },
+  "homepage": "https://github.com/Chubby1-ops/kobosense-main#readme",
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/cli": "^8.5.3",
+    "@capacitor/core": "^8.5.3"
+  }
+}
