@@ -287,7 +287,7 @@ function renderStatic() {
     `<div class="page-title"><div><small>ABOUT KOBOSENSE • TEAM BLAZE</small><h1>Student life is already hard. Your tools shouldn't make it harder.</h1></div></div><img src="img/kobosense-logo.png" alt="KoboSense" style="width:min(280px,100%);border-radius:24px"><h2>Why KoboSense exists</h2><p>KoboSense brings money decisions, academics, hostel life, side hustles, relationships, wellbeing and sports into one practical student experience.</p><h2>Engineered by Team Blaze</h2><p>Team Blaze focuses on useful digital experiences that feel modern, clear and practical.</p><h2>Keep going</h2><p>Do not give up because your beginning looks small. Keep learning, protect your health, correct mistakes and continue building. Your pace is not your final destination.</p><button class="primary" onclick="toast('One solid step at a time. Keep going 🔥')">Give me motivation</button>`;
 }
 function sliders() {
-  sliderTimers.forEach(clearInterval);
+  sliderTimers.forEach(clearTimeout);
   sliderTimers = [];
 
   document.querySelectorAll("[data-slider]").forEach((el) => {
@@ -295,47 +295,62 @@ function sliders() {
     const total = type === "academics" ? 3 : 10;
     const name = type === "academics" ? "academic" : "sport";
 
-    let current = 1;
+    let current = 0;
+    let moving = false;
 
     el.innerHTML = "";
 
     const track = document.createElement("div");
     track.className = "kobo-slider-track";
 
-    const currentImage = document.createElement("img");
-    const nextImage = document.createElement("img");
+    for (let number = 1; number <= total; number++) {
+      const image = document.createElement("img");
 
-    currentImage.className = "kobo-slide current";
-    nextImage.className = "kobo-slide next";
+      image.className = "kobo-slide";
+      image.src = `img/${name}${number}.jpg`;
+      image.alt = "";
 
-    currentImage.src = `img/${name}${current}.jpg?v=1793278403`;
+      track.appendChild(image);
+    }
 
-    track.appendChild(currentImage);
-    track.appendChild(nextImage);
+    const firstClone = track.firstElementChild.cloneNode(true);
+    track.appendChild(firstClone);
+
     el.appendChild(track);
 
-    const moveNext = () => {
-      const upcoming = (current % total) + 1;
+    function scheduleNext() {
+      const timer = setTimeout(moveNext, 5000);
+      sliderTimers.push(timer);
+    }
 
-      nextImage.src = `img/${name}${upcoming}.jpg?v=1793278403`;
+    function moveNext() {
+      if (moving) return;
 
-      nextImage.onload = () => {
-        currentImage.classList.add("slide-out");
-        nextImage.classList.add("slide-in");
+      moving = true;
+      current += 1;
 
-        setTimeout(() => {
-          currentImage.src = nextImage.src;
+      track.style.transition =
+        "transform 1400ms cubic-bezier(.45, 0, .2, 1)";
 
-          currentImage.classList.remove("slide-out");
-          nextImage.classList.remove("slide-in");
+      track.style.transform =
+        `translate3d(-${current * 100}%, 0, 0)`;
 
-          nextImage.src = "";
-          current = upcoming;
-        }, 900);
-      };
-    };
+      const resetTimer = setTimeout(() => {
+        if (current === total) {
+          track.style.transition = "none";
+          current = 0;
+          track.style.transform = "translate3d(0, 0, 0)";
+          track.offsetHeight;
+        }
 
-    sliderTimers.push(setInterval(moveNext, 5000));
+        moving = false;
+        scheduleNext();
+      }, 1450);
+
+      sliderTimers.push(resetTimer);
+    }
+
+    scheduleNext();
   });
 }
 

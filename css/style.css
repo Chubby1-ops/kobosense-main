@@ -636,3 +636,52 @@ button,
         height: 240px;
     }
 }
+/* FINAL CONTINUOUS KOBOSENSE SLIDER */
+
+.slider {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 320px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #090807 !important;
+    border-radius: 17px !important;
+}
+
+.kobo-slider-track {
+    position: relative !important;
+    display: flex !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    background: transparent !important;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+.kobo-slide,
+.kobo-slide.next,
+.kobo-slide.current,
+.kobo-slide.next.slide-in,
+.kobo-slide.current.slide-out {
+    position: relative !important;
+    inset: auto !important;
+    display: block !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transform: none !important;
+    transition: none !important;
+    background: #090807 !important;
+}
+
+@media (max-width: 780px) {
+    .slider {
+        height: 250px !important;
+    }
+}
