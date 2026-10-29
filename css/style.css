@@ -138,3 +138,189 @@ select option {
         touch-action: manipulation;
     }
 }
+/* =========================================
+   KOBOSENSE FINAL MOBILE CONTROL POLISH
+   ========================================= */
+
+/* Stop Android/WebView from giving buttons ugly default colors */
+button {
+    font-family: inherit;
+    color: #ffffff;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+/* Normal generated buttons */
+.section button:not(.primary):not(.danger) {
+    background: #100d07;
+    color: #d9bd62 !important;
+    border: 1px solid #705820;
+    border-radius: 11px;
+    padding: 10px 14px;
+    font-weight: 700;
+}
+
+/* Edit buttons */
+.mini-edit {
+    background: #171005 !important;
+    color: #e2c15a !important;
+    border: 1px solid #806522 !important;
+    border-radius: 9px;
+    padding: 7px 11px;
+    font-weight: 700;
+}
+
+/* Delete buttons */
+.mini-danger {
+    background: #250c10 !important;
+    color: #ff9aa3 !important;
+    border: 1px solid #702730 !important;
+}
+
+/* Relationship, Hustle and Sports cards */
+.topic,
+.idea,
+.activity {
+    background: #0b0a08 !important;
+    border: 1px solid #302817 !important;
+    color: #ffffff !important;
+}
+
+.topic b,
+.idea b,
+.activity b {
+    color: #ffffff !important;
+}
+
+.topic small,
+.idea small,
+.activity small {
+    color: #9e9990 !important;
+}
+
+/* =====================
+   RECEIPT UPGRADE
+   ===================== */
+
+.receipt {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(145deg, #111008, #060605);
+
+    border: 1px solid #806723;
+    border-radius: 20px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, .55),
+        inset 0 1px rgba(255, 255, 255, .03);
+
+    color: #ffffff;
+}
+
+.receipt::before {
+    content: "KOBOSENSE";
+    display: block;
+
+    color: #c7a64c;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+
+    border-bottom: 1px dashed #5d4a1c;
+}
+
+.receipt h2,
+.receipt h3 {
+    color: #e0c166;
+    margin-top: 0;
+}
+
+.receipt p {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin: 0;
+    padding: 11px 0;
+
+    color: #aaa69d;
+
+    border-bottom: 1px solid #1f1c15;
+}
+
+.receipt p b,
+.receipt p strong {
+    color: #ffffff;
+    text-align: right;
+}
+
+.receipt button,
+#closeModal {
+    -webkit-appearance: none;
+    appearance: none;
+
+    background:
+        linear-gradient(135deg, #755a1e, #c7a64c) !important;
+
+    color: #070604 !important;
+
+    border: 0 !important;
+    border-radius: 11px;
+
+    min-height: 44px;
+    padding: 10px 16px;
+
+    font-weight: 850;
+}
+
+/* Modal holding receipt */
+.modal-card {
+    background: #090806;
+    border: 1px solid #5e4a1c;
+    color: #ffffff;
+}
+
+/* Inputs and selects */
+input,
+select,
+textarea {
+    background: #080807;
+    color: #ffffff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #77736c;
+    opacity: 1;
+}
+
+select,
+select option {
+    background: #080807;
+    color: #ffffff;
+}
+
+@media (max-width: 780px) {
+    button,
+    input,
+    select,
+    textarea {
+        min-height: 44px;
+    }
+
+    .receipt {
+        padding: 19px;
+        border-radius: 17px;
+    }
+
+    .receipt p {
+        font-size: 13px;
+    }
+}
