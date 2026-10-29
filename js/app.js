@@ -289,82 +289,56 @@ function renderStatic() {
 function sliders() {
   sliderTimers.forEach(clearInterval);
   sliderTimers = [];
+
   document.querySelectorAll("[data-slider]").forEach((el) => {
-    const type = el.dataset.slider,
-      n = type === "academics" ? 3 : 10;
-    let i = 1;
+    const type = el.dataset.slider;
+    const total = type === "academics" ? 3 : 10;
+    const name = type === "academics" ? "academic" : "sport";
+
+    let current = 1;
+
     el.innerHTML = "";
-    const draw = () => {
-      const name = type === "academics" ? "academic" : "sport",
-        src = `img/${name}${i}.jpg?v=4`,
-        img = new Image();
-      img.onload = () => {
-        el.classList.remove("image-missing");
-        el.style.backgroundImage = `url('${src}')`;
+
+    const track = document.createElement("div");
+    track.className = "kobo-slider-track";
+
+    const currentImage = document.createElement("img");
+    const nextImage = document.createElement("img");
+
+    currentImage.className = "kobo-slide current";
+    nextImage.className = "kobo-slide next";
+
+    currentImage.src = `img/${name}${current}.jpg?v=7`;
+
+    track.appendChild(currentImage);
+    track.appendChild(nextImage);
+    el.appendChild(track);
+
+    const moveNext = () => {
+      const upcoming = (current % total) + 1;
+
+      nextImage.src = `img/${name}${upcoming}.jpg?v=7`;
+
+      nextImage.onload = () => {
+        currentImage.classList.add("slide-out");
+        nextImage.classList.add("slide-in");
+
+        setTimeout(() => {
+          currentImage.src = nextImage.src;
+
+          currentImage.classList.remove("slide-out");
+          nextImage.classList.remove("slide-in");
+
+          nextImage.src = "";
+          current = upcoming;
+        }, 900);
       };
-      img.onerror = () => {
-        el.classList.add("image-missing");
-        el.style.backgroundImage = "none";
-      };
-      img.src = src;
     };
-    draw();
-    sliderTimers.push(
-      setInterval(() => {
-        i = (i % n) + 1;
-        draw();
-      }, 4000),
-    );
+
+    sliderTimers.push(setInterval(moveNext, 5000));
   });
 }
-window.deleteExpense = (id) => {
-  const e = state.expenses.find((x) => x.id === id);
-  if (
-    !e ||
-    !confirm("Delete this expense and restore the amount to your balance?")
-  )
-    return;
-  state.profile.balance += Number(e.amount);
-  state.expenses = state.expenses.filter((x) => x.id !== id);
-  state.notifications.push(`Deleted expense: ${e.desc}. Balance restored.`);
-  save();
-};
-window.editExpense = (id) => {
-  const e = state.expenses.find((x) => x.id === id);
-  if (!e) return;
-  const d = prompt("Expense description", e.desc);
-  if (d === null) return;
-  const a = Number(prompt("Expense amount", e.amount));
-  if (!(a > 0)) return toast("Enter a valid amount.");
-  const available = state.profile.balance + Number(e.amount);
-  if (a > available) return toast("Amount exceeds available balance.");
-  state.profile.balance = available - a;
-  e.desc = d.trim() || e.desc;
-  e.amount = a;
-  save();
-};
-window.removeRoommate = (i) => {
-  state.roommates.splice(i, 1);
-  state.utility = null;
-  save();
-};
-window.removeEarning = (i) => {
-  state.hustle.earnings.splice(i, 1);
-  save();
-};
-window.editEarning = (i) => {
-  const e = state.hustle.earnings[i],
-    a = Number(prompt("Earning amount", e.amount));
-  if (!(a >= 0)) return;
-  e.amount = a;
-  const j = prompt("Job / client", e.job);
-  if (j !== null) e.job = j.trim() || e.job;
-  save();
-};
-window.removeTimetable = (id) => {
-  state.timetable = state.timetable.filter((x) => x.id !== id);
-  save();
-};
+
 function renderTimetableGroups() {
   if (!state.timetable.length)
     return "<p>No study blocks yet. Add courses and generate a smart plan.</p>";

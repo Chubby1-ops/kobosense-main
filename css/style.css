@@ -586,3 +586,55 @@ button,
     content: none !important;
     display: none !important;
 }
+/* KOBOSENSE SMOOTH PUSH SLIDER */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background: #090807 !important;
+    border-radius: 17px;
+}
+
+.kobo-slider-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.kobo-slide {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform: translateX(0);
+    transition:
+        transform 900ms cubic-bezier(.45, 0, .2, 1);
+
+    will-change: transform;
+}
+
+.kobo-slide.next {
+    transform: translateX(100%);
+}
+
+.kobo-slide.current.slide-out {
+    transform: translateX(-100%);
+}
+
+.kobo-slide.next.slide-in {
+    transform: translateX(0);
+}
+
+@media (max-width: 780px) {
+    .slider {
+        height: 240px;
+    }
+}
