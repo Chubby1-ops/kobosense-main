@@ -578,9 +578,7 @@ button,
     background-repeat: no-repeat !important;
 }
 
-.slider > div {
-    display: none !important;
-}
+
 
 .image-missing::before {
     content: none !important;

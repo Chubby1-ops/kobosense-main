@@ -308,7 +308,7 @@ function sliders() {
     currentImage.className = "kobo-slide current";
     nextImage.className = "kobo-slide next";
 
-    currentImage.src = `img/${name}${current}.jpg?v=7`;
+    currentImage.src = `img/${name}${current}.jpg?v=1793278403`;
 
     track.appendChild(currentImage);
     track.appendChild(nextImage);
@@ -317,7 +317,7 @@ function sliders() {
     const moveNext = () => {
       const upcoming = (current % total) + 1;
 
-      nextImage.src = `img/${name}${upcoming}.jpg?v=7`;
+      nextImage.src = `img/${name}${upcoming}.jpg?v=1793278403`;
 
       nextImage.onload = () => {
         currentImage.classList.add("slide-out");
