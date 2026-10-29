@@ -296,7 +296,7 @@ function sliders() {
     el.innerHTML = "";
     const draw = () => {
       const name = type === "academics" ? "academic" : "sport",
-        src = `img/${name}${i}.jpg`,
+        src = `img/${name}${i}.jpg?v=4`,
         img = new Image();
       img.onload = () => {
         el.classList.remove("image-missing");
