@@ -46,7 +46,7 @@ function openModal(html) {
 }
 function receipt(e) {
   openModal(
-    `<div class="receipt"><img src="img/kobosense-logo.png" width="80" alt=""><h2>KoboSense Digital Receipt</h2><p>Reference: <b>${e.id}</b></p><p>Description: <b>${esc(e.desc)}</b></p><p>Amount: <b>${money(e.amount)}</b></p><p>Date: <b>${esc(e.date)}</b></p><button class="primary" onclick="window.print()">Print receipt</button></div>`,
+    `<div class="receipt"><img src="img/kobosense-logo.png" width="80" alt=""><h2>UniSteady Digital Receipt</h2><p>Reference: <b>${e.id}</b></p><p>Description: <b>${esc(e.desc)}</b></p><p>Amount: <b>${money(e.amount)}</b></p><p>Date: <b>${esc(e.date)}</b></p><button class="primary" onclick="window.print()">Print receipt</button></div>`,
   );
 }
 function showTab(id) {
@@ -95,7 +95,7 @@ function renderHome() {
               .reverse()
               .map((n) => `<div class="item">${esc(n)}</div>`),
           ].join("")
-        : `<p>KoboSense is ready. Your alerts will appear here.</p>`
+        : `<p>UniSteady is ready. Your alerts will appear here.</p>`
     }</aside></div>`;
 }
 window.receiptById = (id) => {
@@ -282,9 +282,9 @@ window.selectClub = (x) => {
 };
 function renderStatic() {
   $("#privacy").innerHTML =
-    `<div class="page-title"><div><small>PRIVACY, SAFETY & LEGAL</small><h1>Privacy Policy & Safety Standards</h1></div></div><h2>Purpose</h2><p>KoboSense is a student advisory and planning tool. It is not a bank, medical provider, emergency service or gambling product.</p><h2>Information handled</h2><p>KoboSense stores the information you enter for profile, budgeting, academics, hostel, hustle, relationship and sports features in your browser on this device. No payment-card information is requested.</p><h2>Finance</h2><p>Balances, pockets and receipts are planning records created from user entries. They are not bank balances or bank-issued proof of payment.</p><h2>Health and relationships</h2><p>Health and STI content is educational and does not diagnose or replace professional care. Relationship guidance promotes consent, dignity, safety and non-violence.</p><h2>Safety</h2><p>Do not use KoboSense for fraud, impersonation, harassment, threats, exploitation, violence or unauthorized access.</p><h2>Your control</h2><p>You can edit profile values in Settings and reset all saved local data from the same page.</p><h2>Security and future services</h2><p>If cloud accounts, analytics, payments, advertising, AI or third-party services are added later, this policy must be updated to accurately explain real data flows, retention, rights and service providers.</p>`;
+    `<div class="page-title"><div><small>PRIVACY, SAFETY & LEGAL</small><h1>Privacy Policy & Safety Standards</h1></div></div><h2>Purpose</h2><p>UniSteady is a student advisory and planning tool. It is not a bank, medical provider, emergency service or gambling product.</p><h2>Information handled</h2><p>UniSteady stores the information you enter for profile, budgeting, academics, hostel, hustle, relationship and sports features in your browser on this device. No payment-card information is requested.</p><h2>Finance</h2><p>Balances, pockets and receipts are planning records created from user entries. They are not bank balances or bank-issued proof of payment.</p><h2>Health and relationships</h2><p>Health and STI content is educational and does not diagnose or replace professional care. Relationship guidance promotes consent, dignity, safety and non-violence.</p><h2>Safety</h2><p>Do not use UniSteady for fraud, impersonation, harassment, threats, exploitation, violence or unauthorized access.</p><h2>Your control</h2><p>You can edit profile values in Settings and reset all saved local data from the same page.</p><h2>Security and future services</h2><p>If cloud accounts, analytics, payments, advertising, AI or third-party services are added later, this policy must be updated to accurately explain real data flows, retention, rights and service providers.</p>`;
   $("#about").innerHTML =
-    `<div class="page-title"><div><small>ABOUT KOBOSENSE • TEAM BLAZE</small><h1>Student life is already hard. Your tools shouldn't make it harder.</h1></div></div><img src="img/kobosense-logo.png" alt="KoboSense" style="width:min(280px,100%);border-radius:24px"><h2>Why KoboSense exists</h2><p>KoboSense brings money decisions, academics, hostel life, side hustles, relationships, wellbeing and sports into one practical student experience.</p><h2>Engineered by Team Blaze</h2><p>Team Blaze focuses on useful digital experiences that feel modern, clear and practical.</p><h2>Keep going</h2><p>Do not give up because your beginning looks small. Keep learning, protect your health, correct mistakes and continue building. Your pace is not your final destination.</p><button class="primary" onclick="toast('One solid step at a time. Keep going 🔥')">Give me motivation</button>`;
+    `<div class="page-title"><div><small>ABOUT UNISTEADY • TEAM BLAZE</small><h1>Student life is already hard. Your tools shouldn't make it harder.</h1></div></div><img src="img/kobosense-logo.png" alt="UniSteady" style="width:min(280px,100%);border-radius:24px"><h2>Why UniSteady exists</h2><p>UniSteady brings money decisions, academics, hostel life, side hustles, relationships, wellbeing and sports into one practical student experience.</p><h2>Engineered by Team Blaze</h2><p>Team Blaze focuses on useful digital experiences that feel modern, clear and practical.</p><h2>Keep going</h2><p>Do not give up because your beginning looks small. Keep learning, protect your health, correct mistakes and continue building. Your pace is not your final destination.</p><button class="primary" onclick="toast('One solid step at a time. Keep going 🔥')">Give me motivation</button>`;
 }
 function sliders() {
   sliderTimers.forEach(clearTimeout);
@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toast("Settings saved.");
   };
   $("#resetApp").onclick = () => {
-    if (confirm("Delete all locally saved KoboSense data?")) Store.reset();
+    if (confirm("Delete all locally saved UniSteady data?")) Store.reset();
   };
   $("#closeModal").onclick = () => ($("#modal").hidden = true);
 });

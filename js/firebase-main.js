@@ -270,7 +270,7 @@ auth.onAuthStateChanged(async user => {
             await auth.signOut();
 
             showAccountScreen(
-                "This KoboSense account is suspended."
+                "This UniSteady account is suspended."
             );
 
             return;
@@ -325,7 +325,7 @@ auth.onAuthStateChanged(async user => {
         }
     } catch (error) {
         console.error(
-            "KoboSense startup error:",
+            "UniSteady startup error:",
             error
         );
 
@@ -333,7 +333,7 @@ auth.onAuthStateChanged(async user => {
          * Never expose all screens when startup fails.
          */
         showAccountScreen(
-            "KoboSense could not finish loading. Check your internet connection and try again."
+            "UniSteady could not finish loading. Check your internet connection and try again."
         );
     }
 });

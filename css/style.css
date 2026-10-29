@@ -4,10 +4,10 @@
 [hidden]{display:none!important}
 .item small{display:block;color:var(--muted);margin-top:4px}.item-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.mini-danger{border:1px solid #642a2f;background:#210d10;color:#ff9da6;border-radius:9px;padding:7px 9px}.mini-edit{border:1px solid #65531f;background:#120f08;color:#e3c76f;border-radius:9px;padding:7px 9px}.timetable-preferences{margin:12px 0}.schedule-day{margin-top:14px;border-left:3px solid var(--gold);padding-left:12px}.schedule-day h3{color:var(--gold);margin:0 0 4px}.custom-grid{display:grid;gap:8px;margin-top:12px}.custom-person{display:grid;grid-template-columns:1fr 160px;gap:8px;align-items:center}.health-guide{line-height:1.7}.health-guide h2,.health-guide h3{color:var(--gold)}.health-guide .callout{border:1px solid #493b1b;background:#120f07;border-radius:13px;padding:13px}.image-missing{background:radial-gradient(circle at 50% 20%,#34250a,transparent 45%),#090807!important}.validation{color:#ff9da6;font-size:12px;margin-top:5px}@media(max-width:600px){.custom-person{grid-template-columns:1fr}.item{align-items:flex-start;flex-direction:column}.item-actions{justify-content:flex-start}}
 /* =========================================
-   KOBOSENSE MOBILE / WEBVIEW CONTROL FIX
+   UNISTEADY MOBILE / WEBVIEW CONTROL FIX
    ========================================= */
 
-/* All controls inherit KoboSense font + colours */
+/* All controls inherit UniSteady font + colours */
 button,
 input,
 select,
@@ -139,7 +139,7 @@ select option {
     }
 }
 /* =========================================
-   KOBOSENSE FINAL MOBILE CONTROL POLISH
+   UNISTEADY FINAL MOBILE CONTROL POLISH
    ========================================= */
 
 /* Stop Android/WebView from giving buttons ugly default colors */
@@ -222,7 +222,7 @@ button {
 }
 
 .receipt::before {
-    content: "KOBOSENSE";
+    content: "UNISTEADY";
     display: block;
 
     color: #c7a64c;
@@ -325,7 +325,7 @@ select option {
     }
 }
 /* =====================================================
-   KOBOSENSE MOBILE FINAL OVERRIDES
+   UNISTEADY MOBILE FINAL OVERRIDES
    Must remain at the END of style.css
    ===================================================== */
 
@@ -571,7 +571,7 @@ button,
     }
 }
 
-/* KOBOSENSE CLEAN IMAGE SLIDERS */
+/* UNISTEADY CLEAN IMAGE SLIDERS */
 .slider {
     background-position: center !important;
     background-size: cover !important;
@@ -584,7 +584,7 @@ button,
     content: none !important;
     display: none !important;
 }
-/* KOBOSENSE SMOOTH PUSH SLIDER */
+/* UNISTEADY SMOOTH PUSH SLIDER */
 
 .slider {
     position: relative;
@@ -636,7 +636,7 @@ button,
         height: 240px;
     }
 }
-/* FINAL CONTINUOUS KOBOSENSE SLIDER */
+/* FINAL CONTINUOUS UNISTEADY SLIDER */
 
 .slider {
     position: relative !important;
