@@ -324,3 +324,249 @@ select option {
         font-size: 13px;
     }
 }
+/* =====================================================
+   KOBOSENSE MOBILE FINAL OVERRIDES
+   Must remain at the END of style.css
+   ===================================================== */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+#app,
+main,
+.page,
+.section,
+.two-col,
+.metric-grid,
+.pocket-grid,
+.form-row,
+.item,
+.settings-grid {
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* Stop grid/flex children from forcing mobile width */
+.two-col > *,
+.metric-grid > *,
+.pocket-grid > *,
+.form-row > *,
+.item > *,
+.settings-grid > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Finance must never stretch wider than screen */
+#finance {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+#finance .metric-grid,
+#finance .pocket-grid {
+    width: 100%;
+}
+
+#finance .metric,
+#finance .pocket {
+    min-width: 0;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+}
+
+#finance input,
+#finance select,
+#finance textarea,
+#finance button {
+    max-width: 100%;
+}
+
+/* Kill Android/WebView default white/grey buttons */
+button,
+#closeModal,
+#settings button,
+#finance button,
+#hostel button,
+#academics button,
+#relationship button,
+#hustle button,
+#sports button {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+
+    background: #100d07;
+    color: #dabe68 !important;
+
+    border: 1px solid #6e5721;
+    border-radius: 11px;
+
+    padding: 10px 13px;
+    font-family: inherit;
+    font-weight: 700;
+}
+
+/* Gold primary button */
+.primary,
+#closeModal {
+    background: linear-gradient(
+        135deg,
+        #73591f,
+        #c7a64c
+    ) !important;
+
+    color: #070604 !important;
+    border-color: #c7a64c !important;
+}
+
+/* Secondary button */
+.ghost {
+    background: #0b0a08 !important;
+    color: #d6c17a !important;
+    border-color: #6b5523 !important;
+}
+
+/* Delete / dangerous controls */
+.danger,
+.mini-danger {
+    background: #280d11 !important;
+    color: #ff9aa3 !important;
+    border-color: #702730 !important;
+}
+
+/* Edit controls */
+.mini-edit {
+    background: #151005 !important;
+    color: #e5c45f !important;
+    border-color: #806522 !important;
+}
+
+/* SETTINGS */
+#settings input,
+#settings select {
+    width: 100%;
+    max-width: 100%;
+    background: #080807 !important;
+    color: #ffffff !important;
+}
+
+#settings select option {
+    background: #080807;
+    color: #ffffff;
+}
+
+/* RECEIPT */
+.modal-card {
+    background: #090806 !important;
+    color: #ffffff !important;
+    border: 1px solid #66511e !important;
+}
+
+.receipt {
+    background:
+        linear-gradient(145deg, #121008, #060605)
+        !important;
+
+    color: #ffffff !important;
+    border: 1px solid #806723 !important;
+    border-radius: 20px !important;
+}
+
+.receipt h1,
+.receipt h2,
+.receipt h3,
+.receipt strong,
+.receipt b {
+    color: #ffffff;
+}
+
+.receipt h2,
+.receipt h3 {
+    color: #d8b95d !important;
+}
+
+.receipt p {
+    color: #aaa69d;
+}
+
+/* Fix dark-card black text everywhere */
+.topic,
+.idea,
+.activity {
+    background: #0b0a08 !important;
+    color: #ffffff !important;
+    border-color: #302817 !important;
+}
+
+.topic b,
+.idea b,
+.activity b {
+    color: #ffffff !important;
+}
+
+.topic small,
+.idea small,
+.activity small {
+    color: #9e9990 !important;
+}
+
+/* Mobile-specific correction */
+@media (max-width: 780px) {
+
+    main {
+        width: calc(100% - 24px) !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .two-col {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    .metric-grid,
+    .pocket-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr))
+            !important;
+    }
+
+    .idea-grid,
+    .topic-grid,
+    .activity-grid,
+    .settings-grid {
+        grid-template-columns:
+            minmax(0, 1fr) !important;
+    }
+
+    .form-row {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .form-row > * {
+        flex: 1 1 140px;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+        max-width: 100%;
+        min-height: 44px;
+    }
+
+    .receipt {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .modal-card {
+        width: calc(100vw - 28px);
+        max-width: 520px;
+    }
+}
