@@ -1,4 +1,14 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UniSteady</title> <meta name="monetag" content="bf5a173ec5a859dbd2f1ccf787cb29f7"><link rel="icon" href="img/kobosense-logo.png"><link rel="stylesheet" href="css/style.css?v=1793278403"> <script>(function(s){s.dataset.zone='12152729',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script></head><body>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UniSteady</title> <meta name="monetag" content="bf5a173ec5a859dbd2f1ccf787cb29f7"><link rel="icon" href="img/kobosense-logo.png"><link rel="stylesheet" href="css/style.css?v=1793278403"> <script>
+(function(){
+  var last = localStorage.getItem('ipp_last');
+  var now = Date.now();
+  // 1 hour = 3600000 ms
+  if(!last || now - parseInt(last) > 3600000){
+    localStorage.setItem('ipp_last', now.toString());
+    (function(s){s.dataset.zone='12152729',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
+  }
+})();
+</script></head><body>
 <div id="appLoading" class="gate">
     <div class="gate-card">
         <img src="img/kobosense-logo.png" class="gate-logo" alt="UniSteady">
