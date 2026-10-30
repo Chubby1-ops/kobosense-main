@@ -1,31 +1,25 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UniSteady</title> <meta name="monetag" content="bf5a173ec5a859dbd2f1ccf787cb29f7"><link rel="icon" href="img/kobosense-logo.png"><link rel="stylesheet" href="css/style.css?v=1793278403"> <script>
-// In-Page Push - 1 per hour, force only 1 box
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>UniSteady</title> <meta name="monetag" content="bf5a173ec5a859dbd2f1ccf787cb29f7"><link rel="icon" href="img/kobosense-logo.png"><link rel="stylesheet" href="css/style.css?v=1793278403"> <style>/* hide extra push */</style>
+<script>
 (function(){
-  var key='ipp_last';
-  var now=Date.now();
-  var last=localStorage.getItem(key);
-  if(last && now - parseInt(last) < 3600000) return;
-  localStorage.setItem(key, now.toString());
+  var key='ipp_one';
+  if(localStorage.getItem(key) && Date.now() - parseInt(localStorage.getItem(key)) < 3600000) return;
+  localStorage.setItem(key, Date.now().toString());
   var s=document.createElement('script');
   s.dataset.zone='12152729';
   s.src='https://nap5k.com/tag.min.js';
-  document.documentElement.appendChild(s);
-  
-  // Kill extra 2 boxes if e try to show 3
-  var killSpam = setInterval(function(){
-    var boxes = document.querySelectorAll('div[style*="z-index"]');
-    var count = 0;
-    boxes.forEach(function(b){
-      if(b.offsetWidth > 200 && b.offsetWidth < 400 && b.offsetHeight < 200){
-        count++;
-        if(count > 1) b.remove();
+  document.head.appendChild(s);
+  // Force hide extra 2 boxes
+  var c=0;
+  setInterval(function(){
+    document.querySelectorAll('div[style*="fixed"]').forEach(function(d){
+      if(d.innerText.length>10 && d.offsetHeight<300 && d.offsetWidth>240 && d.offsetWidth<400){
+        c++;
+        if(c>1){ d.remove(); }
       }
     });
-    if(count >= 1) { /* keep killing for 10 sec */ }
-  }, 1500);
-  setTimeout(function(){ clearInterval(killSpam); }, 15000);
+  },800);
 })();
-        </script></head><body>
+</script></head><body>
 <div id="appLoading" class="gate">
     <div class="gate-card">
         <img src="img/kobosense-logo.png" class="gate-logo" alt="UniSteady">
